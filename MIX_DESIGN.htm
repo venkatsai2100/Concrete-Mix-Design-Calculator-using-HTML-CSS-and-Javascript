@@ -1,0 +1,890 @@
+	<html>
+	<head>
+	<title>Mix Design.</title>
+<script language = "javaScript">
+<!--
+	function doDesign(){
+		SC = 3.15 // --------------- SP.GRAVITY OF CEMENT.
+		FCK = document.MIX.FCK.options[document.MIX.FCK.selectedIndex].value
+		FCK = parseFloat(FCK);	
+		CF = document.MIX.CF.options[document.MIX.CF.selectedIndex].value
+		CF = parseFloat(CF);	
+		QC = document.MIX.QC.options[document.MIX.QC.selectedIndex].value
+		QC = parseFloat(QC);	
+		SHAPE = document.MIX.SHAPE.options[document.MIX.SHAPE.selectedIndex].value
+		SHAPE = parseFloat(SHAPE);	
+		CEM = document.MIX.CEM.options[document.MIX.CEM.selectedIndex].value
+		CEM = parseFloat(CEM);	
+		EXP = document.MIX.EXP.options[document.MIX.EXP.selectedIndex].value
+		EXP = parseFloat(EXP);	
+		SPC = document.MIX.SPC.options[document.MIX.SPC.selectedIndex].value
+		SPC = parseFloat(SPC);	
+		SPF = document.MIX.SPF.options[document.MIX.SPF.selectedIndex].value
+		SPF = parseFloat(SPF);	
+		WABC = document.MIX.WABC.options[document.MIX.WABC.selectedIndex].value
+		WABC = parseFloat(WABC);	
+		MC = document.MIX.MC.options[document.MIX.MC.selectedIndex].value
+		MC = parseFloat(MC);	
+		F4 = document.MIX.F4.options[document.MIX.F4.selectedIndex].value
+		F4 = parseFloat(F4);	
+		F2 = document.MIX.F2.options[document.MIX.F2.selectedIndex].value
+		F2 = parseFloat(F2);	
+		F1 = document.MIX.F1.options[document.MIX.F1.selectedIndex].value
+		F1 = parseFloat(F1);	
+		F6M = document.MIX.F6M.options[document.MIX.F6M.selectedIndex].value
+		F6M = parseFloat(F6M);	
+		F3M = document.MIX.F3M.options[document.MIX.F3M.selectedIndex].value
+		F3M = parseFloat(F3M);	
+		F1M = document.MIX.F1M.options[document.MIX.F1M.selectedIndex].value
+		F1M = parseFloat(F1M);	
+		M1D2 = document.MIX.M1D2.options[document.MIX.M1D2.selectedIndex].value
+		M1D2 = parseFloat(M1D2);	
+		M2D2 = document.MIX.M2D2.options[document.MIX.M2D2.selectedIndex].value
+		M2D2 = parseFloat(M2D2);	
+		M1D1 = document.MIX.M1D1.options[document.MIX.M1D1.selectedIndex].value
+		M1D1 = parseFloat(M1D1);	
+		M2D1 = document.MIX.M2D1.options[document.MIX.M2D1.selectedIndex].value
+		M2D1 = parseFloat(M2D1);	
+		M1D4 = document.MIX.M1D4.options[document.MIX.M1D4.selectedIndex].value
+		M1D4 = parseFloat(M1D4);	
+		M2D4 = document.MIX.M2D4.options[document.MIX.M2D4.selectedIndex].value
+		M2D4 = parseFloat(M2D4);	
+		M1FR = document.MIX.M1FR.options[document.MIX.M1FR.selectedIndex].value
+		M1FR = parseFloat(M1FR);	
+		M2FR = document.MIX.M2FR.options[document.MIX.M2FR.selectedIndex].value
+		M2FR = parseFloat(M2FR);	
+		DS = document.MIX.DS.options[document.MIX.DS.selectedIndex].value
+		DS = parseFloat(DS);	
+		DA1 = document.MIX.DA1.options[document.MIX.DA1.selectedIndex].value
+		DA1 = parseFloat(DA1);	
+		DA2 = document.MIX.DA2.options[document.MIX.DA2.selectedIndex].value
+		DA2 = parseFloat(DA2);	
+// ==================================== EXPOSURE
+				switch (EXP){
+							case 1 :
+										SD  = 4
+										FK = 20
+										MIN_CEM = 300
+										WTCR = 0.55
+									break;
+							case 2 :
+										SD  = 4
+										FK = 25
+										MIN_CEM = 300
+										WTCR = 0.50
+									break;
+							case 3 :
+										SD  = 5
+										FK = 30
+										MIN_CEM = 320
+										WTCR = 0.45
+									break;
+							case 4 :
+										SD  = 5
+										FK = 35
+										MIN_CEM = 340
+										WTCR = 0.45
+									break;
+							case 5 :
+										SD  = 5
+										FK = 40
+										MIN_CEM = 360
+										WTCR = 0.40
+									break;
+				}
+// ---------------------------------------------------------- FCK
+
+				switch (FCK){
+							case 20 :
+										SD = 4
+										MIN_CEM = 300
+										WTCR = 0.55
+									break;
+							case 25 :
+										SD  = 4
+										MIN_CEM = 300
+										WTCR = 0.50
+									break;
+							case 30 :
+										SD  = 5
+										MIN_CEM = 320
+										WTCR = 0.45
+									break;
+							case 35 :
+										SD  = 5
+										MIN_CEM = 340
+										WTCR = 0.45
+									break;
+							case 40 :
+										SD  = 5
+										MIN_CEM = 360
+										WTCR = 0.40
+									break;
+							case 45 :
+										SD  = 5
+										MIN_CEM = 360
+										WTCR = 0.40
+									break;
+							case 50 :
+										SD  = 5
+										MIN_CEM = 360
+										WTCR = 0.40
+									break;
+				}
+
+			if (FCK < FK) {
+				alert('** Data Error **\n' +
+						'Concrete strength required is\n' +
+						'Less than that required from\n' +
+						'Exposure condition.\n' +
+						'Strength specified [N/mm2] = ' + FCK + '\n' + 
+						'Strength required {exposure criteria} [N/mm2] = ' + FK )
+					return;
+			}						
+
+					if (QC == 2) { SD = SD + 1 }
+					T = FCK + SD * 1.65					
+
+		if(T > 18.35 && T <= 22.5) {
+			Y = 0.013 * (22.5 - T) + 0.55
+		}
+		if(T > 22.5 && T <= 27) {
+			Y = 0.0111 * (27 - T) + 0.50
+		}
+		if(T > 27 && T <= 37) {
+			Y = 0.01 * (37 - T) + 0.40
+		}
+		if(T > 37 && T <= 52 ) {
+			Y = 0.0067 * (52 - T) + 0.30
+		}
+		if(T > 52 ) {
+			Y = 0.30
+		}
+		Y= Y * 100
+		Y = Math.round(Y)/100
+		if (WTCR < Y) { Y = WTCR }
+	
+		if (Y <= 0.35 ) { FAC = 1 }
+		if (Y > 0.35 && Y <=0.375) { FAC = 0.90 }
+		if (Y > 0.375 && Y <=0.4)  { FAC = 0.80 }
+		if (Y > 0.40 && Y <=0.425) { FAC = 0.75 }
+		if (Y > 0.425 && Y <=0.45) { FAC = 0.70 }
+		if (Y > 0.45 && Y <=0.475) { FAC = 0.65 }
+		if (Y > 0.475 && Y <=0.5)  { FAC = 0.58 }
+		if (Y > 0.50 && Y <=0.525) { FAC = 0.54 }
+		if (Y > 0.520 && Y <=0.55) { FAC = 0.50 }
+	TS = Math.round(CEM * FAC + 0.49)
+	if (TS < FCK) {
+		alert('The required strength will not be achieved\n' +
+				'With the present cement grade\n' +
+				'Required strength [N/mm2] = ' + FCK + '\n' +
+				'Strength possible [N/mm2] = ' + TS + '\n' +
+				'Revise cement grade.')
+			return;
+	}
+
+// ------------------------------ ZONE IDENTIFICATION
+if(F4>=90 && F4<=100 && F2>=60 && F2<=95 && F1>=30 && F1<=70 && F6M>=15 && F6M<=34 && F3M>=5 && F3M<=20 && F1M>=0 && F1M<=10) {
+	ZONE = 1
+} 
+
+else if (F4>=90 && F4<=100 && F2>=75 && F2<=100 && F1>=55 && F1<=90 && F6M>=35 && F6M<=59 && F3M>=10 && F3M<=30 && F1M>=0 && F1M<=10) {
+	ZONE = 2
+}
+
+
+else if (F4>=90 && F4<=100 && F2>=85 && F2<=100 && F1>=75 && F1<=100 && F6M>=60 && F6M<=79 && F3M>=10 && F3M<=40 && F1M>=0 && F1M<=10) {
+	ZONE = 3
+}
+
+else if (F4>=95 && F4<=100 && F2>=95 && F2<=100 && F1>=90 && F1<=100 && F6M>=80 && F6M<=100 && F3M>=15 && F3M<=50 && F1M>=0 && F1M<=15) {
+	ZONE = 4
+} else { 
+		alert('** Error in Fine Aggregate Gradation\n' +
+				'Revise selected grading of sand.****')
+			return;
+	}
+
+
+// ============================================ ADJUSTMENT REQUIRED.		
+SAND1 = (Y - 0.6)/.05 
+	if (ZONE == 1) { SAND2 = 1.5}
+		else if (ZONE == 3) { SAND2 = - 1.5 }
+			else if (ZONE == 4) { SAND2 = - 3.0 
+			} else { SAND2 = 0 }
+											if (SHAPE == 2) { SAND3 = -7 } else { SAND3 = 0 }	
+T_SAND = SAND1 + SAND2 + SAND3		
+
+MC1 = (CF - 0.8)/0.10 * 3 
+											if (SHAPE == 2) { MC2 = -15 } else { MC2 = 0 }	
+
+// ------------------- TABLE 43 - SP 23
+	if (FCK <= 35) {
+		WATER = 186
+		SAND = 35
+	} else {
+		WATER = 180
+		SAND = 30
+	}
+	
+SAND = SAND + T_SAND
+WATER = WATER + MC1* WATER/100 + MC2
+CEMENT = WATER/Y
+CEMENT = Math.max(CEMENT, MIN_CEM)
+Y = WATER/CEMENT
+SA = SAND/100
+FA = (0.98*1000 - WATER - CEMENT/SC) * SA * SPF
+CA = (0.98*1000 - WATER - CEMENT/SC) * (1-SA) * SPC
+// ====================== CALC. OF PROPORTION.
+PW = WATER/CEMENT
+PFA = FA/CEMENT
+PCA = CA/CEMENT
+Z = M1FR/100, U = M2FR/100
+X20 = M1D2*Z + M2D2*U
+X10 = M1D1*Z + M2D1*U
+X47 = M1D4*Z + M2D4*U
+X20 = TDEC(X20)
+X10 = TDEC(X10)
+X47 = TDEC(X47)
+			if(X20 < 95 || X20 > 100) {
+				alert('** Grading not permitted **\n' +
+						'As per IS:383, for maximum size of 20 mm aggregate,\n' +
+						'the fraction passing 20 mm sieve should be between\n' +
+						'95 % to 100 %. Please select different grading.\n' +
+						'Current grading [ % ] = ' + X20 )
+				return;
+			}
+			if(X10 < 25 || X10 > 55) {
+				alert('** Grading not permitted **\n' +
+						'As per IS:383, for maximum size of 20 mm aggregate\n' +
+						'the fraction passing 10 mm sieve should be between\n' +
+						'25 % to 55 %. Please select different grading.\n' +
+						'Current grading [ % ] = ' + X10 )
+				return;
+			}
+			if(X47 > 10) {
+				alert('** Grading not permitted **\n' +
+						'As per IS:383, for maximum size of 20 mm aggregate\n' +
+						'the fraction passing 4.75 mm sieve should not exceed\n' +
+						'10 %. Please select different grading.\n' +
+						'Current grading [ % ] = ' + X47 )
+				return;
+		}
+
+BAGS = TDEC(CEMENT/50)
+// ---------------------- QTY FOR 50 KG OF CEMENT BAG
+MF = 50/CEMENT
+WATER50 = 50 * Y 
+FA50 = FA * MF
+CA50 = CA * MF
+CA1 = CA50 * Z
+CA2 = CA50 * U
+WATER1 = CA50 * WABC/100
+WATER2 = FA50 * MC/100
+H2O = TDEC(WATER50 + WATER1 - WATER2)
+FINES = TDEC(FA50 + WATER2)
+FRACT1 = TDEC(CA1 - WATER1)
+FRACT2 = TDEC(CA2 - WATER1)
+CMT = TDEC(H2O/50)
+P1 = TDEC(FINES/50)
+P2 = TDEC((FRACT1 + FRACT2)/50)
+PROP = '1:' +  P1 + ': ' + P2 
+document.MIX.BAGS.value = BAGS
+document.MIX.H2O.value = H2O
+document.MIX.CMT.value = CMT
+document.MIX.FINES.value = FINES
+document.MIX.FRACT1.value = FRACT1
+document.MIX.FRACT2.value = FRACT2
+document.MIX.ZONEX.value = ZONE
+document.MIX.PROP.value = PROP
+
+// ------------------------------------------ MIX D/C BY VOLUME.
+
+				switch (MC){
+							case 2 :
+										BK = 1.1
+									break;
+							case 5 :
+										BK  = 1.30
+									break;
+							case 7.5 :
+										BK  = 1.26
+									break;
+				}
+
+SANDV = TDEC(FINES/DS * BK)
+FR1V = TDEC(FRACT1/DA1)
+FR2V = TDEC(FRACT2/DA2)
+document.MIX.SANDV.value = SANDV
+document.MIX.FR1V.value = FR1V
+document.MIX.FR2V.value = FR2V
+
+		} // ================ program ends
+
+// ============================== do_chkx ===============================================
+
+				function do_chkx(FX){
+					//alert(+FX);
+					FXY = parseFloat(FX);
+						if (FX <= 0 || isNaN(FXY)) {
+							alert("Please Enter Appropriate Value, It Cannot Be Text/<=Zero/Blank");
+							
+							return false;
+						}	
+							return true;
+				}
+
+// *************************************** 2 decimal display. *****************************
+				function TDEC(FX){
+					FX = parseInt(FX*100)/100;
+							return FX
+				}
+
+// ************************************************************
+
+-->
+
+</script>
+</head>
+
+<body  bgcolor="#CCCCCC" text="#000000" onLoad = "document.MIX.FCK.focus()" Unload = " document.close()" link="#0000FF" vlink="#0000FF" alink="#FF0000">
+<form name = 'MIX'>
+  <table width="640" cellspacing="0" cellpadding="4" border="1" align="center" bgcolor='#CCCCCC' bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#CCCCCC" >
+    <tr align="center" bgcolor="#FFD3A8"> 
+      <td colspan="2" align="center" height="46" width="640" bgcolor="#CCCCCC" > <font face="Verdana, Arial, Helvetica, sans-serif"><b><font color="#000000"><font size = "4">&nbsp;CONCRETE
+        MIX DESIGN CONFORMING TO<br>
+        </font></font><font size = "4" color="#000000">IS
+        10262,383,SP 23 &amp; IS 456-2000</font></b></font></td>
+    </tr>
+    <tr>
+      <td width="523" height="23"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">CONCRETE&nbsp;
+        GRADE REQUIRED</font></b> </td>
+      <td width="142" height="23"> 
+        <select name = "FCK" size = 1>
+          <option value = "20">M 20</option>
+          <option value = "25">M 25</option>
+          <option value = "30">M 30</option>
+          <option value = "35">M 35</option>
+          <option value = "40">M 40</option>
+          <option value = "45">M 45</option>
+          <option value = "50">M 50</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+<td width="523" height="32" > <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">COMPACTING
+  FACTOR</font></b> </td>
+      <td width="142" height="23" > 
+        <select name = "CF" size = 1>
+          <option value = "0.75">0.75</option>
+          <option value = "0.80">0.80</option>
+          <option value = "0.85">0.85</option>
+          <option selected value = "0.90">0.90</option>
+          <option value = "0.95">0.95</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+<td width="523" height="32" > <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">DEGREE
+        OF QUALITY CONTROL @ SITE</font></b> </td>
+      <td width="142" height="23" > 
+        <select name = "QC" size = 1>
+          <option value = "1">GOOD</option>
+          <option value = "2">AVERAGE</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+<td width="523" height="23"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">CEMENT
+        GRADE</font></b> </td>
+      <td width="142" height="23"> 
+        <select name = "CEM" size = 1>
+          <option value = "33">M 33</option>
+          <option  selected value = "43">M 43</option>
+          <option value = "53">M 53</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+<td width="523" height="23" > <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">EXPOSURE
+        CONDITION</font></b> </td>
+      <td width="142" height="23"> 
+        <select name = "EXP" size = 1>
+          <option value = "1" selected>MILD</option>
+          <option value = "2">MODERATE </option>
+          <option value = "3">SEVERE </option>
+          <option value = "4">VERY SEVERE</option>
+          <option value = "5"> E X T R E M E </option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+<td width="523" height="32"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">SPECIFIC
+        GRAVITY OF COARSE AGGREGATE</font></b> </td>
+      <td width="142" height="32" > 
+        <select name = "SPC" size = 1>
+          <option value = "2.5" >2.5</option>
+          <option selected value = "2.6">2.6</option>
+          <option value = "2.8">2.8</option>
+          <option value = "3">3.0</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+<td width="523" height="32"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">SPECIFIC
+        GRAVITY OF FINE AGGREGATE</font></b> </td>
+      <td width="142" height="32" > 
+        <select name = "SPF" size = 1>
+          <option value = "2.5" >2.5</option>
+          <option selected value = "2.6">2.6</option>
+          <option value = "2.8">2.8</option>
+          <option value = "3">3.0</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td width="523" height="30"><b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">WATER
+        ABSORPTION OF COARSE AGGREGATE</font></b></td>
+      <td width="142" height="32" > 
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif"> 
+        <select name = "WABC" size = 1>
+          <option value = "0.5">0.5 %</option>
+          <option value = "1.0">1.0 %</option>
+          <option value = "1.5">1.5 %</option>
+          <option value = "2.0">2.0 %</option>
+          <option value = "2.5">2.5 %</option>
+        </select>
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td width="523" height="23"><b><font size="2">MOISTURE
+        CONTENT OF FINE AGGREGATE</font></b></td>
+      <td width="142" height="32" > 
+        <select name = "MC" size = 1>
+          <option value = "2">2 %</option>
+          <option value = "5">5 %</option>
+          <option value = "7.5">7.5 %</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td width="523" height="23"><b><font size="2">SHAPE OF COARSE AGGREGATE</font></b></td>
+      <td width="142" height="32" > 
+        <select name = "SHAPE" size = 1>
+          <option value = "1">ANGULAR</option>
+          <option value = "2">ROUNDED</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td width="523" height="23"><b><font size="2">DRY LOOSE BULK DENSITY OF
+        SAND { KG/LIT }</font></b></td>
+      <td width="142" height="32" > 
+        <select name = "DS" size = 1>
+          <option value = "1.2">1.2</option>
+          <option value = "1.4">1.4</option>
+          <option value = "1.6">1.6</option>
+          <option selected value = "1.7">1.7</option>
+          <option value = "1.8">1.8</option>
+        </select>       
+      </td>
+    </tr>
+    <tr>
+      <td width="523" height="23"><b><font size="2">DRY LOOSE BULK DENSITY OF
+        AGGREGATE {METAL NO. 1} { KG/LIT }</font></b></td>
+      <td width="142" height="32" > 
+        <select name = "DA1" size = 1>
+          <option value = "1.2">1.2</option>
+          <option value = "1.4">1.4</option>
+          <option selected value = "1.6">1.6</option>
+          <option value = "1.7">1.7</option>
+          <option value = "1.8">1.8</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td width="523" height="23"><b><font size="2">DRY LOOSE BULK DENSITY OF
+        AGGREGATE {METAL NO. 2} { KG/LIT }</font></b></td>
+      <td width="142" height="32" > 
+        <select name = "DA2" size = 1>
+          <option value = "1.2">1.2</option>
+          <option selected value = "1.4">1.4</option>
+          <option value = "1.6">1.6</option>
+          <option value = "1.7">1.7</option>
+          <option value = "1.8">1.8</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+<td width="600" height="16" colspan="2" align="center" bgcolor="#CCCCCC"> <b><font size="2" color="#000000" face="Verdana, Arial, Helvetica, sans-serif">
+INPUT SIEVE ANALYSIS RESULTS OF FINE AGGREGATE:</font></b> </td>
+    </tr>
+    <tr>
+<td width="523" height="16" bgcolor="#CCCCCC" align="center"> <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>
+IS SIEVE SIZE&nbsp;</b></font> </td>
+      <td width="142" height="16" bgcolor="#CCCCCC" align="center"> 
+        <b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;%
+        PASSING</font></b>
+      </td>
+    </tr>
+    <tr>
+ <td width="523" height="23" bgcolor="#CCCCCC" align="center"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+4.75 MM</font></b> </td>
+      <td width="142" height="32" bgcolor="#CCCCCC" align="center"> 
+        <select name = "F4" size = 1>
+          <option value = "90">90 %</option>
+          <option value = "93">93 %</option>
+          <option value = "96">96 %</option>
+          <option selected value = "100">100 %</option>
+        </select>    
+      </td>
+    </tr>
+    <tr>
+<td width="523" height="23" bgcolor="#CCCCCC" align="center"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2.36 MM</font></b> </td>
+      <td width="142" height="32" bgcolor="#CCCCCC" align="center"> 
+        <select name = "F2" size = 1>
+          <option value = "60">60 %</option>
+          <option value = "70">70 %</option>
+          <option value = "80">80 %</option>
+          <option value = "90">90 %</option>
+          <option selected value = "100">100 %</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+<td width="523" height="23" bgcolor="#CCCCCC" align="center"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1.18 MM</font></b> </td>
+      <td width="142" height="32" bgcolor="#CCCCCC" align="center"> 
+        <select name = "F1" size = 1>
+          <option value = "30">30 %</option>
+          <option value = "40">40 %</option>
+          <option value = "50">50 %</option>
+          <option value = "60">60 %</option>
+          <option value = "70">70 %</option>
+          <option value = "80">80 %</option>
+          <option selected value = "90">90 %</option>
+          <option value = "100">100 %</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+<td width="523" height="23" bgcolor="#CCCCCC" align="center"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+600 MICRONS</font></b> </td>
+      <td width="142" height="32" bgcolor="#CCCCCC" align="center" > 
+        <select name = "F6M" size = 1>
+          <option value = "15">15 %</option>
+          <option value = "25">25 %</option>
+          <option value = "35">35 %</option>
+          <option value = "40">40 %</option>
+          <option value = "50">50 %</option>
+          <option selected value = "60">60 %</option>
+          <option value = "70">70 %</option>
+          <option value = "80">80 %</option>
+          <option value = "90">90 %</option>
+          <option value = "100">100 %</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+<td width="523" height="23" bgcolor="#CCCCCC" align="center"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+300 MICRONS</font></b> </td>
+      <td width="142" height="23" bgcolor="#CCCCCC" align="center"> 
+        <select name = "F3M" size = 1>
+          <option value = "5">5 %</option>
+          <option selected value = "10">10 %</option>
+          <option value = "15">15 %</option>
+          <option value = "20">20 %</option>
+          <option value = "30">30 %</option>
+          <option value = "40">40 %</option>
+          <option value = "50">50 %</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td width="523" height="23" bgcolor="#CCCCCC" align="center"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+150 MICRONS</font></b> </td>
+      <td width="142" height="32" bgcolor="#CCCCCC" align="center" > 
+        <select name = "F1M" size = 1>
+          <option value = "0">NIL</option>
+          <option selected value = "5">5 %</option>
+          <option value = "10">10 %</option>
+          <option value = "15">15 %</option>
+        </select>
+      </td>
+    </tr>
+    </table>
+   
+  <table width="640" cellspacing="0" cellpadding="4" border="1" align="center" bgcolor='#CCCCCC' bordercolorlight="#000000" bordercolordark="#FFFFFF" bordercolor="#CCCCCC">
+    <tr align="center" bgcolor="#FFD3A8"> 
+    
+      <td width="600" height="16" colspan="3" align="center" bgcolor="#CCCCCC"> <b><font size="2" color="#000000" face="Verdana, Arial, Helvetica, sans-serif">INPUT
+        SIEVE ANALYSIS RESULTS OF 20 MM DOWN COARSE AGGREGATE&nbsp;</font></b> </td>
+    </tr>
+    <tr>
+      <td width="271" height="32"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#000000">IS
+        SIEVE&nbsp;SIZE</font></b> </td>
+      <td width="188" height="32"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#000000">FRACTION
+        M1&nbsp;</font></b> </td>
+      <td width="177" height="32"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#000000">&nbsp;FRACTION
+        M2&nbsp; </font></b> </td>
+    </tr>
+
+     <tr>
+      <td width="271" height="32"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#000000">20
+        MM</font></b> </td>
+      <td width="188" height="32"> 
+        <font color="#000000"> 
+        <select name = "M1D2" size = 1>
+          <option value = "0">NIL</option>
+          <option value = "10">10 %</option>
+          <option value = "20">20 %</option>
+          <option value = "30">30 %</option>
+          <option value = "40">40 %</option>
+          <option value = "50">50 %</option>
+          <option value = "60">60 %</option>
+          <option value = "70">70 %</option>
+          <option value = "80">80 %</option>
+          <option value = "90">90 %</option>
+          <option selected value = "100">100 %</option>
+        </select><b><font size="2" color="#008000" face="Verdana, Arial, Helvetica, sans-serif">%
+        PASSING</font></b> 
+        </font> 
+        </td>
+
+      <td width="177" height="32">  
+        <font color="#000000">  
+        <select name = "M2D2" size = 1>
+          <option value = "0">NIL</option>
+          <option value = "10">10 %</option>
+          <option value = "20">20 %</option>
+          <option value = "30">30 %</option>
+          <option value = "40">40 %</option>
+          <option value = "50">50 %</option>
+          <option value = "60">60 %</option>
+          <option value = "70">70 %</option>
+          <option value = "80">80 %</option>
+          <option value = "90">90 %</option>
+          <option selected value = "100">100 %</option>
+        </select><b><font size="2" color="#008000" face="Verdana, Arial, Helvetica, sans-serif">%
+        PASSING</font></b> 
+        </font> 
+        </td>
+    </tr>
+    <tr>
+      <td width="271" height="28"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#000000">10
+        MM&nbsp;</font></b> </td>
+      <td width="188" height="28">  
+        <font color="#000000">  
+        <select name = "M1D1" size = 1>
+          <option value = "0">NIL</option>
+          <option value = "10">10 %</option>
+          <option value = "20">20 %</option>
+          <option value = "30">30 %</option>
+          <option value = "40">40 %</option>
+          <option value = "50">50 %</option>
+          <option value = "60">60 %</option>
+          <option value = "70">70 %</option>
+          <option value = "80">80 %</option>
+          <option value = "90">90 %</option>
+          <option value = "100">100 %</option>
+        </select><b><font size="2" color="#008000" face="Verdana, Arial, Helvetica, sans-serif">%
+        PASSING</font></b> 
+        </font> 
+ </td>
+      <td width="177" height="28">  
+        <font color="#000000">  
+        <select name = "M2D1" size = 1>
+          <option value = "0">NIL</option>
+          <option value = "10">10 %</option>
+          <option value = "20">20 %</option>
+          <option value = "30">30 %</option>
+          <option value = "40">40 %</option>
+          <option value = "50">50 %</option>
+          <option value = "60">60 %</option>
+          <option selected value = "70">70 %</option>
+          <option value = "80">80 %</option>
+          <option value = "90">90 %</option>
+          <option value = "100">100 %</option>
+        </select><b><font size="2" color="#008000" face="Verdana, Arial, Helvetica, sans-serif">%
+        PASSING</font></b> 
+        </font> 
+ </td>
+    </tr>
+    <tr>
+      <td width="271" height="28"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#000000">4.75
+        MM</font></b> </td>
+      <td width="188" height="28">  
+        <font color="#000000">  
+        <select name = "M1D4" size = 1>
+          <option value = "0">NIL</option>
+          <option value = "10">10 %</option>
+          <option value = "20">20 %</option>
+          <option value = "30">30 %</option>
+          <option value = "40">40 %</option>
+          <option value = "50">50 %</option>
+          <option value = "60">60 %</option>
+          <option value = "70">70 %</option>
+          <option value = "80">80 %</option>
+          <option value = "90">90 %</option>
+          <option value = "100">100 %</option>
+        </select><b><font size="2" color="#008000" face="Verdana, Arial, Helvetica, sans-serif">%
+        PASSING</font></b> 
+        </font> 
+ </td>
+      <td width="177" height="28">  
+        <font color="#000000">  
+        <select name = "M2D4" size = 1>
+          <option value = "0">NIL</option>
+          <option selected value = "10">10 %</option>
+          <option value = "20">20 %</option>
+          <option value = "30">30 %</option>
+          <option value = "40">40 %</option>
+          <option value = "50">50 %</option>
+          <option value = "60">60 %</option>
+          <option value = "70">70 %</option>
+          <option value = "80">80 %</option>
+          <option value = "90">90 %</option>
+          <option value = "100">100 %</option>
+        </select><b><font size="2" color="#008000" face="Verdana, Arial, Helvetica, sans-serif">%
+        PASSING</font></b> 
+        </font> 
+ </td>
+    </tr>
+    <tr>
+      <td width="271" height="28" bgcolor="#CCCCCC"> <b><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#000000">SELECT
+        % OF EACH {<span style="background-color: #FFFF00"> M1 &amp; M2 </span>}<br>
+        FRACTION FOR COMBINATION&nbsp;</font></b> </td>
+      <td width="188" height="28" bgcolor="#CCCCCC">  
+        <font color="#000000">  
+        <select name = "M1FR" size = 1>
+          <option value = "0">NIL</option>
+          <option value = "10">10 %</option>
+          <option value = "20">20 %</option>
+          <option value = "30">30 %</option>
+          <option value = "40">40 %</option>
+          <option value = "50">50 %</option>
+          <option selected value = "60">60 %</option>
+          <option value = "70">70 %</option>
+          <option value = "80">80 %</option>
+          <option value = "90">90 %</option>
+          <option value = "100">100 %</option>
+        </select>
+        </font>
+ </td>
+      <td width="177" height="28" bgcolor="#CCCCCC">  
+        <font color="#000000">  
+        <select name = "M2FR" size = 1>
+          <option value = "0">NIL</option>
+          <option value = "10">10 %</option>
+          <option value = "20">20 %</option>
+          <option value = "30">30 %</option>
+          <option selected value = "40">40 %</option>
+          <option value = "50">50 %</option>
+          <option value = "60">60 %</option>
+          <option value = "70">70 %</option>
+          <option value = "80">80 %</option>
+          <option value = "90">90 %</option>
+          <option value = "100">100 %</option>
+        </select>
+        </font>
+ </td>
+    </tr>
+    <tr>
+      <td colspan = '3' width="600" align="center" height="28" bgcolor="#FFFFFF"> <font face="Times New Roman, Times, serif">&nbsp;&nbsp;&nbsp; 
+        </font> <font face="Courier New, Courier, mono" size="2"> 
+        <input type = "button" value = " Design Mix " onClick= "doDesign()" name="button"
+onFocus = "window.status = 'Commence Design Of Concrete MIX.';return true"
+onBlur = "window.status =' ' " ;></font><font face="Times New Roman, Times, serif">&nbsp;&nbsp;&nbsp;</font>
+<font face="Courier New, Courier, mono" size="2">
+<a href="MIX_Limit.htm" onMouseOver = "window.status = 'PROGRAM INFO & LIMITATIONS.'; return true" ; 
+onMouseOut = "window.status = ''; return true">
+<img src="../GIF/limit.gif" border="0" width="144" height="18"></a></font><font face="Times New Roman, Times, serif">&nbsp;
+&nbsp; <a href="javascript: window.history.back()" onMouseOver = "window.status = 'GO BACK.'; return true" ; 
+onMouseOut = "window.status = ''; return true">
+        <img src="../GIF/Back.gif" border="0" width="175" height="24"></a>&nbsp;&nbsp;<font face="Courier New, Courier, mono" size="2"><input type="reset" value="Clear" name="reset" onFocus="window.status = 'Clear Parameters.';return true" ; onBlur="window.status =' ' "></font></font></td>
+    </tr>
+  </table>
+  <div align="center">
+    <center>
+      <table border="1" cellpadding="2" width="640" bgcolor="#CCCCCC" bordercolor="#CCCCCC" cellspacing="0" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+        <tr>
+        <td width="203" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="4">MIX
+          DESIGN</font></b></td>
+        <td width="200" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">REQUIRED
+          MIX BY WEIGHT</font></b></td>
+        <td width="207" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+          <p align="center"><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">REQUIRED
+          MIX BY VOLUME</font></b></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="203" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2">MIX
+          PROPORTION&nbsp;</font></b></td>
+        <td width="200" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2"><input type="text" name="PROP" size="12" maxlength="12"> 
+          </font> 
+          </b> 
+        </td>
+        <td width="207" rowspan="4" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+          <p align="center"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2">NO.
+          OF CEMENT BAGS<br>
+          PER M3.&nbsp;<br>
+          <br>
+          <input type="text" name="BAGS" size="8" maxlength="6"> 
+          </font></b>
+          <p>&nbsp;</p>
+          &nbsp;</td>
+      </tr>
+      <tr>
+        <td width="203" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2">CEMENT</font></b></td>
+        <td width="200" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2">50 KG
+          { ONE BAG }</font></b></td>
+      </tr>
+      <tr>
+        <td width="203" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2">WATER</font></b></td>
+        <td width="200" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2"><input type="text" name="H2O" size="6" maxlength="6"> 
+          { LITER }</font></b></td>
+      </tr>
+      <tr>
+        <td width="203" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2">WATER/CEMENT
+          RATIO</font></b></td>
+        <td width="200" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2"><input type="text" name="CMT" size="6" maxlength="6"></font></b></td>
+      </tr>
+      <tr>
+        <td width="203" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2">SAND</font></b></td>
+        <td width="200" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2"><input type="text" name="FINES" size="6" maxlength="6"> 
+          { KG }</font></b></td>
+        <td width="207" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2"><input type="text" name="SANDV" size="6" maxlength="6"> 
+          { LITER }</font></b></td>
+      </tr>
+      <tr>
+        <td width="203" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2">AGGREGATE
+          {FRACTION 1}</font></b></td>
+        <td width="200" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2"><input type="text" name="FRACT1" size="6" maxlength="6"> 
+          { KG }</font></b></td>
+        <td width="207" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2"><input type="text" name="FR1V" size="6" maxlength="6"> 
+          { LITER }</font></b></td>
+      </tr>
+      <tr>
+        <td width="203" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2">AGGREGATE
+          {FRACTION 2}</font></b></td>
+        <td width="200" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2"><input type="text" name="FRACT2" size="6" maxlength="6"> 
+          { KG }</font></b></td>
+        <td width="207" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2"><input type="text" name="FR2V" size="6" maxlength="6"> 
+          { LITER }</font></b></td>
+      </tr>
+      <tr>
+        <td width="203" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000" size="2">SAND
+          GRADING ZONE</font></b></td>
+          <td width="407" colspan="2" bgcolor="#C0C0C0" bordercolor="#C0C0C0" bordercolorlight="#000000" bordercolordark="#FFFFFF"><font color="#000000"><b> 
+            <font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+            <input type="text" name="ZONEX" size="3" maxlength="3"></font></b>&nbsp;</font></td>
+      </tr>
+    </table>
+    </center>
+  </div>
+  &nbsp;
+
+
+</form></body>

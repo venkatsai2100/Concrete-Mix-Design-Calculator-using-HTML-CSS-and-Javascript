@@ -1,0 +1,240 @@
+	<html>
+	<head>
+	<title>Calculation Of Finess Modulus.</title>
+<script language = "javaScript">
+<!--
+	function doDesign(){
+		var F475 = document.ld.F475.value;
+		F475 = parseFloat(F475)
+		var F236 = document.ld.F236.value;
+		F236 = parseFloat(F236)
+		var F118 = document.ld.F118.value;
+		F118 = parseFloat(F118)
+		var F600 = document.ld.F600.value;
+		F600 = parseFloat(F600)
+		var F300 = document.ld.F300.value;
+		F300 = parseFloat(F300)
+		var F150 = document.ld.F150.value;
+		F150 = parseFloat(F150)
+X475 = 100
+document.ld.X475.value = TDEC(X475)
+FAC = 100/F475
+X236 = FAC*F236
+X118 = FAC*F118
+X600 = FAC*F600
+X300 = FAC*F300
+X150 = FAC*F150
+
+document.ld.X236.value = TDEC(X236)
+document.ld.X118.value = TDEC(X118)
+document.ld.X600.value = TDEC(X600)
+document.ld.X300.value = TDEC(X300)
+document.ld.X150.value = TDEC(X150)
+Y475 = 0
+Y236 = 100 - X236
+Y118 = 100 - X118
+Y600 = 100 - X600
+Y300 = 100 - X300
+Y150 = 100 - X150
+document.ld.Y475.value = 0
+document.ld.Y236.value = TDEC(Y236)
+document.ld.Y118.value = TDEC(Y118)
+document.ld.Y600.value = TDEC(Y600)
+document.ld.Y300.value = TDEC(Y300)
+document.ld.Y150.value = TDEC(Y150)
+FM = Y236+Y118+Y600+Y300+Y150
+document.ld.FM.value = TDEC(FM/100)
+
+
+	}
+	
+// ============================== do_chkx ===============================================
+
+				function do_chkx(FX){
+					//alert(+FX);
+					FXY = parseFloat(FX);
+						if (FX <= 0 || isNaN(FXY) || FX > 100) {
+							alert("Please Enter Appropriate Value, It Cannot Be Text/<=Zero/Blank or > 100");
+							
+							return false;
+						}	
+							return true;
+				}
+
+// *************************************** 2 decimal display. *****************************
+				function TDEC(FX){
+					FX = parseInt(FX*100)/100;
+							return FX
+				}
+
+// ************************************************************
+
+-->
+
+</script>
+
+</head>
+
+<body onLoad = "document.ld.F475.focus()" bgcolor="#CCCCCC" text="#000000" on Unload = "document.close()">
+<form name = ld>
+  <table width="500" cellspacing="0" cellpadding="4" border="1" align="center" bgcolor='#CCCCCC' height="215" bordercolor="#CCCCCC" bordercolorlight="#000000" bordercolordark="#FFFFFF" >
+    <tr align="center" bgcolor="#CCCCCC"> 
+      <td colspan="4" align="center" height="22" width="500" > <font color="#000000"><b> 
+        <font face="Verdana, Arial, Helvetica, sans-serif"><font size = "4">&nbsp;CALCULATION 
+        OF FINENESS MODULUS<br>
+        </font></font><font size="2" face="Verdana, Arial, Helvetica, sans-serif">ENTER 
+        VALUES OF { Z } &amp; PRESS CALCULATE</font></b></font></td>
+    </tr>
+    <tr align="center" bgcolor="#CCCCCC"> 
+      <td align="center" height="35" width="125" rowspan="2" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        &nbsp;IS SIEVE SIZE</b></font></td>
+      <td align="center" height="35" width="125" rowspan="2" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>% 
+        PASSING&nbsp;<br>
+        OF SAND<br>
+        [ Z ]</b></font> </td>
+      <td align="center" height="18" width="250" colspan="2" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>PURE 
+        SAND</b></font> </td>
+    </tr>
+    <tr align="center"> 
+      <td align="center" height="17" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>X</b></font> 
+      </td>
+      <td align="center" height="17" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>100 
+        - X</b></font> </td>
+    </tr>
+    <tr align="center" bgcolor="#CCCCCC"> 
+      <td align="center" height="18" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>4.75 
+        MM</b></font></td>
+      <td align="center" height="18" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "F475" size = 6 maxlength = 6 value = 96
+		onFocus = "this.select()" ;
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}">
+        </b></font></td>
+      <td align="center" height="18" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "X475" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+      <td align="center" height="18" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "Y475" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+    </tr>
+    <tr align="center" bgcolor="#CCCCCC"> 
+      <td align="center" height="1" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>2.36 
+        MM</b></font></td>
+      <td align="center" height="1" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "F236" size = 6 maxlength = 6 value = 72
+		onFocus = "this.select()" ; 
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}">
+        </b></font></td>
+      <td align="center" height="1" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "X236" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select()" ;
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}">
+        </b></font></td>
+      <td align="center" height="1" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "Y236" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+    </tr>
+    <tr align="center" bgcolor="#CCCCCC"> 
+      <td align="center" height="3" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>1.18 
+        MM</b></font></td>
+      <td align="center" height="3" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "F118" size = 6 maxlength = 6 value = 47
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+      <td align="center" height="3" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "X118" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+      <td align="center" height="3" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "Y118" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+    </tr>
+    <tr align="center" bgcolor="#CCCCCC"> 
+      <td align="center" height="18" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>600 
+        MICRONS</b></font></td>
+      <td align="center" height="18" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "F600" size = 6 maxlength = 6 value = 34
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+      <td align="center" height="18" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "X600" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+      <td align="center" height="18" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "Y600" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+    </tr>
+    <tr align="center" bgcolor="#CCCCCC"> 
+      <td align="center" height="17" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>300 
+        MICRONS</b></font></td>
+      <td align="center" height="17" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "F300" size = 6 maxlength = 6 value = 13
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+      <td align="center" height="17" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "X300" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+      <td align="center" height="17" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "Y300" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+    </tr>
+    <tr align="center" bgcolor="#CCCCCC"> 
+      <td align="center" height="17" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>150 
+        MICRONS</b></font></td>
+      <td align="center" height="17" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "F150" size = 6 maxlength = 6 value = 4
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+      <td align="center" height="17" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "X150" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+      <td align="center" height="17" width="125" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "Y150" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select()"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+    </tr>
+    <tr align = 'center' bgcolor="#CCCCCC"> 
+      <td colspan = '4' width="500" height="28"> <font face="Times New Roman, Times, serif"> 
+        <input type = "button" value = "Calculate F M" onClick= "doDesign()" name="button"
+onFocus = "window.status = 'Calculate F M.';return true"
+onBlur = "window.status =' ' " ;>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript: window.history.back()" onMouseOver = "window.status = 'GO BACK.'; return true" ; 
+onMouseOut = "window.status = ''; return true"><img src="../GIF/Back.gif" width="175" height="24" border="0"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <input type = "reset" value = "Clear" name="reset"
+onFocus = "window.status = 'Clear Parameters.';return true"
+onBlur = "window.status =' ' " ;>
+        </font></td>
+    </tr>
+    <tr bgcolor="#CCCCCC"> 
+      <td align="center" height="17" width="250" colspan="2" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>FINENESS 
+        MODULUS</b></font></td>
+      <td align="center" height="17" width="250" colspan="2" > <font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b> 
+        <input type = "text" name = "FM" size = 6 maxlength = 6 value = ' '
+		onFocus = "this.select() ; window.status = 'Default is 415 N/mm2.'; return true"
+		onBlur = "if (!do_chkx(this.value)) { this.focus();}" ;>
+        </b></font></td>
+    </tr>
+  </table>
+</form></body></html>
